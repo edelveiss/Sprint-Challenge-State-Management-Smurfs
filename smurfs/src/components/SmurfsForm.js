@@ -44,8 +44,17 @@ const SmurfsForm = (props) => {
 
   return (
     <div className="smurf-form">
-      <h2>Add new Smurf</h2>
+      <div style={{ width: "100%" }}>
+        <h2
+          style={{
+            background: "#afeeed",
 
+            textAlign: "center",
+          }}
+        >
+          Add new Smurf
+        </h2>
+      </div>
       <form onSubmit={formSubmit}>
         <label htmlFor="name">
           Name
