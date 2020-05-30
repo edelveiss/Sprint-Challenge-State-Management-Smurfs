@@ -32,6 +32,15 @@ const SmurfsForm = (props) => {
 
     setPostState(newPostData);
   };
+  const cancelNewPost = (e) => {
+    e.preventDefault();
+    setPostState({
+      name: "",
+      age: "",
+      height: "",
+      id: "",
+    });
+  };
 
   return (
     <div className="smurf-form">
@@ -70,8 +79,12 @@ const SmurfsForm = (props) => {
             value={postState.height}
           />
         </label>
-
-        <button type="submit">Submit</button>
+        <div style={{ display: "flex" }}>
+          <button type="submit">Submit</button>
+          <button style={{ marginLeft: "1rem" }} onClick={cancelNewPost}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
