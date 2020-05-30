@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import Smurf from "./Smurf";
 import { connect } from "react-redux";
 import { getData } from "../actions";
 
@@ -8,7 +8,16 @@ const SmurfsList = (props) => {
     props.getData();
   }, []);
   console.log("smurfs in SmurfsList", props.smurfs);
-  return <div>SmurfsList</div>;
+
+  return (
+    <div className="smurf">
+      {props.error ? (
+        <div className="error">{props.error}</div>
+      ) : (
+        props.smurfs.map((smurf) => <Smurf key={smurf.id} smurf={smurf} />)
+      )}
+    </div>
+  );
 };
 const mapStateToProps = (state) => {
   return {
